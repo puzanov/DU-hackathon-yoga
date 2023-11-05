@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Camera_Gallery WebApp</title>
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay src="" style="transform: rotateY(180deg)"></video>
+    </div>
+
+    <div class="action-container">
+        <!--
+        <div class="record-btn-container">
+            <div class="record-btn"></div>
+        </div>
+        -->
+        <div class="capture-btn-container">
+            <div class="capture-btn"></div>
+        </div>
+    </div>
+
+    <div class="timer-container">
+        <h1 class="timer">00:00:00</h1>
+    </div>
+
+    <!--
+    <div class="filter-container">
+        <div class="filter blue"></div>
+        <div class="filter yellow"></div>
+        <div class="filter orange"></div>
+        <div class="filter transparent"></div>
+    </div>
+    -->
+
+    <div class="filter-layer"></div>
+
+    <!--
+    <span class="material-icons gallery">
+        collections
+    </span>
+    -->
+
+    <script src="https://unpkg.com/shortid-dist@1.0.5/dist/shortid-2.2.13.min.js"></script>
+    <script src="db.js"></script>
+    <script src="script.js"></script>
+    <script>
+        let gallery = document.querySelector(".gallery");
+        gallery.addEventListener('click', (e) => {
+            location.assign('./gallery.html');
+        })
+    </script>
+
+    <!--
+    <form id="yogaform" action="http://localhost:5000/upload" enctype="multipart/form-data" method="POST">
+        <input type="file" id="myFile" name="yogaimage">
+        <input type="submit">
+    </form>
+    -->
+</body>
+</html>

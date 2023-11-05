@@ -50,12 +50,17 @@ navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
 captureBtnContainer.addEventListener('click', async (e) => {
     audio.volume = maxVol;
     console.log("Stand in a posture");
+    document.getElementById('banner').innerHTML = "Stand in a yoga posture"
+    document.getElementById('banner').style.display = "block";
     setTimeout(processPicture, 5000);
 })
 
 async function processPicture() {
-    console.log("Processing the posture");
+    console.log("Processing the posture\n\n\n\n\nProcessing the posture\n\n\n\nProcessing the posture");
     
+    document.getElementById('banner').innerHTML = "Processing the posture"
+    document.getElementById('banner').style.display = "block";
+
     captureBtn.classList.add("scale-capture");
 
     let canvas = document.createElement('canvas');
@@ -71,11 +76,7 @@ async function processPicture() {
     //let imageURL = canvas.toDataURL("image/jpeg");
     let imageURL = canvas.toDataURL("image/jpeg");
 
-    console.log(imageURL);
-
     let imageBlob = dataURItoBlob(imageURL);
-
-    console.log(imageBlob);
 
     // document.getElementById('myFile').value=imageURL
     //let form = document.getElementById("yogaform");
@@ -99,6 +100,9 @@ async function processPicture() {
 
         console.log(resData.result.answer);
 
+        document.getElementById('banner').innerHTML = resData.result.answer
+        document.getElementById('banner').style.display = "block";
+
         window.speechSynthesis.cancel();
 
         let utterance = new SpeechSynthesisUtterance();
@@ -110,12 +114,16 @@ async function processPicture() {
         window.speechSynthesis.speak(utterance);
         utterance.addEventListener("end", (event) => {
             audio.volume = maxVol
+            document.getElementById('banner').style.display = "hidden";
         });
         
       } catch (err) {
         console.log(err.message);
         errText = "Probably this is not a yoga pose. Please try again";
         console.log(errText);
+
+        document.getElementById('banner').innerHTML = errText
+        document.getElementById('banner').style.display = "block";
 
         audio.volume = minVol;
 
@@ -130,6 +138,7 @@ async function processPicture() {
         window.speechSynthesis.speak(utterance);
 
         utterance.addEventListener("end", (event) => {
+            document.getElementById('banner').style.display = "hidden";
             audio.volume = maxVol
         });
 

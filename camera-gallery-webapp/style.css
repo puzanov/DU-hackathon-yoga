@@ -84,12 +84,18 @@ video{
 
 .timer-container{
     position: absolute;
+    bottom:0;
     top: 1rem;
     left: 2rem;
     color: aqua;
     font-size: 0.8rem;
+    width:400px;
 }
 .timer{
+    position: center;
+    padding:10px;
+    background-color: white;
+    color:black;
     display: none;
 }
 
